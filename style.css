@@ -1,0 +1,612 @@
+/* ================= Ebook Landing – Verde-oliva / Mostarda / Terroso ================= */
+:root {
+    --olive-900: #222a15;
+    --olive-800: #2f3a1c;
+    --olive-700: #3d4b24;
+    --olive-600: #4f6130;
+    --olive-500: #6b7f3e;
+    --mustard: #d99b1e;
+    --mustard-light: #f0b93f;
+    --clay: #a9552f;
+    --sand: #f4efe3;
+    --sand-2: #e9e1cd;
+    --ink: #1b1b16;
+    --muted: #6a6656;
+    --white: #fffdf8;
+    --radius: 14px;
+    --shadow: 0 18px 40px -22px rgba(34, 42, 21, 0.55);
+    --maxw: 1080px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background-color: var(--sand);
+    background-image:
+        radial-gradient(rgba(107, 127, 62, 0.13) 1px, transparent 1px),
+        radial-gradient(rgba(169, 85, 47, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px, 34px 34px;
+    background-position: 0 0, 11px 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+.eyebrow,
+.btn {
+    font-family: "Arial Black", "Helvetica Neue", Impact, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+}
+
+.wrap {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 64px 0;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--olive-700);
+    background: var(--sand-2);
+    border: 1px solid rgba(61, 75, 36, 0.2);
+    padding: 7px 14px;
+    border-radius: 999px;
+    margin-bottom: 18px;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    background: var(--mustard);
+    color: var(--olive-900);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    padding: 18px 30px;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 0 -2px rgba(140, 98, 14, 0.45), var(--shadow);
+    transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    transform: scale(1.04) translateY(-2px);
+    background: var(--mustard-light);
+    box-shadow: 0 14px 0 -2px rgba(140, 98, 14, 0.5), var(--shadow);
+}
+
+.btn:active {
+    transform: scale(0.99) translateY(1px);
+}
+
+.btn--lg {
+    font-size: 1.2rem;
+    padding: 22px 40px;
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+}
+
+.btn--olive {
+    background: var(--olive-600);
+    color: var(--white);
+    box-shadow: 0 10px 0 -2px rgba(24, 32, 12, 0.45), var(--shadow);
+}
+
+.btn--olive:hover {
+    background: var(--olive-500);
+}
+
+.btn-note {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+/* ---------- Barra de progresso ---------- */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--olive-600), var(--mustard));
+    z-index: 50;
+    transition: width 0.1s linear;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background: var(--olive-800);
+    color: var(--sand);
+    position: relative;
+    overflow: hidden;
+    padding: 72px 0 76px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 9px);
+}
+
+.hero .wrap {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero .eyebrow {
+    background: rgba(240, 185, 63, 0.14);
+    color: var(--mustard-light);
+    border-color: rgba(240, 185, 63, 0.35);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 6.5vw, 3.4rem);
+    color: var(--white);
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--mustard-light);
+}
+
+.hero p.sub {
+    margin: 20px 0 30px;
+    font-size: clamp(1rem, 2.6vw, 1.18rem);
+    color: rgba(244, 239, 227, 0.85);
+    max-width: 34em;
+}
+
+.hero-art {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-art img {
+    width: min(330px, 78%);
+    filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.45));
+    transform: rotate(-3deg);
+}
+
+.hero-badges {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    margin-top: 26px;
+    font-size: 0.9rem;
+    color: rgba(244, 239, 227, 0.75);
+}
+
+.hero-badges li::before {
+    content: "▪";
+    color: var(--mustard);
+    margin-right: 8px;
+}
+
+/* ---------- Dor ---------- */
+.pain {
+    background: var(--white);
+}
+
+.pain h2 {
+    font-size: clamp(1.6rem, 4.5vw, 2.3rem);
+    max-width: 18em;
+    margin-bottom: 28px;
+}
+
+.pain-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.pain-card {
+    background: var(--sand);
+    border-left: 5px solid var(--clay);
+    padding: 20px 22px;
+    border-radius: 10px;
+    font-size: 1.02rem;
+}
+
+.pain-card strong {
+    display: block;
+    font-size: 1.05rem;
+    color: var(--olive-800);
+    margin-bottom: 4px;
+}
+
+.pain-kicker {
+    margin-top: 28px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--clay);
+}
+
+/* ---------- 7 passos ---------- */
+.steps h2 {
+    font-size: clamp(1.7rem, 5vw, 2.5rem);
+    margin-bottom: 10px;
+}
+
+.steps .lead {
+    color: var(--muted);
+    margin-bottom: 40px;
+    max-width: 40em;
+}
+
+.steps-track {
+    position: relative;
+}
+
+.steps-track::before {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: var(--sand-2);
+    border-radius: 3px;
+}
+
+.steps-track::after {
+    content: "";
+    position: absolute;
+    left: 27px;
+    top: 12px;
+    width: 3px;
+    height: var(--steps-progress, 0%);
+    background: linear-gradient(180deg, var(--olive-600), var(--mustard));
+    border-radius: 3px;
+    transition: height 0.25s ease;
+}
+
+.step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 18px;
+    padding: 0 0 30px 0;
+}
+
+.step-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--olive-600);
+    display: grid;
+    place-items: center;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 18px -10px rgba(34, 42, 21, 0.6);
+}
+
+.step-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--olive-700);
+    fill: none;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.step-body {
+    padding-top: 4px;
+}
+
+.step-num {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mustard);
+    font-weight: 700;
+}
+
+.step h3 {
+    font-size: 1.15rem;
+    margin: 4px 0 6px;
+    color: var(--olive-800);
+}
+
+.step p {
+    color: var(--muted);
+    font-size: 0.98rem;
+}
+
+.step--bonus .step-icon {
+    border-color: var(--clay);
+    background: #fff6e8;
+}
+
+.step--bonus .step-icon svg {
+    stroke: var(--clay);
+}
+
+/* ---------- Por que agora ---------- */
+.why {
+    background: var(--olive-700);
+    color: var(--sand);
+}
+
+.why h2 {
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    color: var(--white);
+    max-width: 16em;
+}
+
+.why-grid {
+    display: grid;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.why-item {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    padding: 22px;
+}
+
+.why-item h3 {
+    font-size: 1.05rem;
+    color: var(--mustard-light);
+    margin-bottom: 6px;
+}
+
+.why-item p {
+    font-size: 0.96rem;
+    color: rgba(244, 239, 227, 0.82);
+}
+
+/* ---------- Prova social ---------- */
+.social {
+    background: var(--white);
+}
+
+.social h2 {
+    font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+    margin-bottom: 26px;
+}
+
+.social-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.testimonial {
+    border: 2px dashed var(--sand-2);
+    border-radius: var(--radius);
+    padding: 24px;
+    background: var(--sand);
+}
+
+.testimonial p {
+    font-style: italic;
+    color: var(--muted);
+}
+
+.testimonial footer {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--olive-700);
+    font-style: normal;
+}
+
+.seal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 26px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.seal span {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--olive-600);
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* ---------- Oferta ---------- */
+.offer {
+    text-align: center;
+}
+
+.offer-card {
+    background: var(--white);
+    border: 3px solid var(--olive-800);
+    border-radius: 20px;
+    padding: 44px 26px;
+    box-shadow: var(--shadow);
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.offer h2 {
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    margin-bottom: 12px;
+}
+
+.price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    margin: 22px 0 6px;
+}
+
+.price .old {
+    text-decoration: line-through;
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.price .now {
+    font-family: "Arial Black", sans-serif;
+    font-size: clamp(2.6rem, 10vw, 3.6rem);
+    color: var(--olive-800);
+}
+
+.price-note {
+    color: var(--clay);
+    font-weight: 700;
+    margin-bottom: 26px;
+}
+
+.offer ul {
+    list-style: none;
+    text-align: left;
+    max-width: 420px;
+    margin: 0 auto 28px;
+}
+
+.offer ul li {
+    padding: 8px 0 8px 30px;
+    position: relative;
+    color: var(--ink);
+}
+
+.offer ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--olive-600);
+    font-weight: 900;
+}
+
+/* ---------- Urgência final ---------- */
+.final {
+    background: var(--olive-900);
+    color: var(--sand);
+    text-align: center;
+}
+
+.final h2 {
+    font-size: clamp(1.7rem, 5.5vw, 2.6rem);
+    color: var(--white);
+    max-width: 16em;
+    margin: 0 auto 18px;
+}
+
+.final p {
+    color: rgba(244, 239, 227, 0.8);
+    max-width: 34em;
+    margin: 0 auto 30px;
+}
+
+/* ---------- Rodapé ---------- */
+footer.site {
+    background: #171c0f;
+    color: rgba(244, 239, 227, 0.6);
+    padding: 34px 0;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+footer.site a {
+    color: var(--mustard-light);
+    text-decoration: none;
+}
+
+footer.site a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn {
+        transition: none;
+    }
+}
+
+/* ---------- Responsivo ---------- */
+@media (min-width: 720px) {
+    section {
+        padding: 88px 0;
+    }
+
+    .pain-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 940px) {
+    .hero {
+        padding: 96px 0 100px;
+    }
+
+    .hero .wrap {
+        grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .steps-list {
+        max-width: 780px;
+    }
+}
